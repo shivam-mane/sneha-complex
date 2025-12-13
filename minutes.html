@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Makaan - Real Estate HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles to match your Screenshot */
+        .doc-nav-container {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 0;
+            color: #333;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .nav-pills .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        /* Active State (Green background like image) */
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #00B98E;
+            /* Primary Theme Color */
+        }
+
+        .nav-pills .nav-link:hover:not(.active) {
+            background-color: #f8f9fa;
+        }
+
+        /* PDF Viewer Container */
+        .pdf-wrapper {
+            background: #e9ecef;
+            /* Gray background like image */
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            height: 650px;
+            /* Fixed height for the viewer */
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        .download-btn-container {
+            margin-top: 15px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                    </div>
+                    <h1 class="m-0 text-primary">Makaan</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+<a href="about.html" class="nav-item nav-link">About Society</a>                        <a href="redevelopment.html" class="nav-item nav-link active">AGM/SGM Minutes</a>
+                        <a href="minutes.html" class="nav-item nav-link">AGM/SGM Minutes</a>
+                        <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">AGM/SGM Minutes</h1>
+                    <nav aria-label="breadcrumb animated fadeIn">
+                        <ol class="breadcrumb text-uppercase">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item text-body active" aria-current="page">AGM/SGM Minutes</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <div class="owl-carousel header-carousel">
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <!-- <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3">
+                                    <option selected>Property Type</option>
+                                    <option value="1">Property Type 1</option>
+                                    <option value="2">Property Type 2</option>
+                                    <option value="3">Property Type 3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3">
+                                    <option selected>Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100 py-3">Search</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- Search End -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="doc-nav-container">
+                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-profile" type="button" role="tab"
+                                    aria-controls="v-pills-profile" aria-selected="true">
+                                    Developer Profile
+                                </button>
+
+                                <button class="nav-link" id="v-pills-mou-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-mou" type="button" role="tab" aria-controls="v-pills-mou"
+                                    aria-selected="false">
+                                    Draft MOU
+                                </button>
+
+                                <button class="nav-link" id="v-pills-feasibility-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-feasibility" type="button" role="tab"
+                                    aria-controls="v-pills-feasibility" aria-selected="false">
+                                    Feasibility Report
+                                </button>
+
+                                <button class="nav-link" id="v-pills-plans-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-plans" type="button" role="tab"
+                                    aria-controls="v-pills-plans" aria-selected="false">
+                                    Approved Plans
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+                                <div class="pdf-wrapper">
+                                    <iframe class="pdf-frame"
+                                        src="docs/developer_profile.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                        type="application/pdf"></iframe>
+                                </div>
+                                <div class="download-btn-container">
+                                    <button class="btn btn-primary py-2 px-4"
+                                        onclick="downloadProtectedFile('docs/developer_profile.pdf', 'Developer_Profile.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download Profile
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-mou" role="tabpanel"
+                                aria-labelledby="v-pills-mou-tab">
+                                <div class="pdf-wrapper">
+                                    <iframe class="pdf-frame" src="docs/draft_mou.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                        type="application/pdf"></iframe>
+                                </div>
+                                <div class="download-btn-container">
+                                    <button class="btn btn-primary py-2 px-4"
+                                        onclick="downloadProtectedFile('docs/draft_mou.pdf', 'Draft_MOU.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download MOU
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-feasibility" role="tabpanel"
+                                aria-labelledby="v-pills-feasibility-tab">
+                                <div class="pdf-wrapper">
+                                    <iframe class="pdf-frame"
+                                        src="docs/feasibility_report.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                        type="application/pdf"></iframe>
+                                </div>
+                                <div class="download-btn-container">
+                                    <button class="btn btn-primary py-2 px-4"
+                                        onclick="downloadProtectedFile('docs/feasibility_report.pdf', 'Feasibility_Report.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download Report
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-plans" role="tabpanel"
+                                aria-labelledby="v-pills-plans-tab">
+                                <div class="pdf-wrapper">
+                                    <iframe class="pdf-frame"
+                                        src="docs/approved_plans.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                        type="application/pdf"></iframe>
+                                </div>
+                                <div class="download-btn-container">
+                                    <button class="btn btn-primary py-2 px-4"
+                                        onclick="downloadProtectedFile('docs/approved_plans.pdf', 'Approved_Plans.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download Plans
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+      <!-- Footer Start -->
+         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white mb-4">Get In Touch</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="index.html">Home</a>
+                        <a class="btn btn-link text-white-50" href="about.html">About Society</a>
+                        <a class="btn btn-link text-white-50" href="redevelopment.html">Redevelopment Docs</a>
+                        <a class="btn btn-link text-white-50" href="minutes.html">AGM/SGM Minutes</a>
+                        <a class="btn btn-link text-white-50" href="gallery.html">Gallery</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white mb-4">Photo Gallery</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-3 mb-md-0">
+                            <p class="copyright-text">Design &amp; Developed By <a href="https://rightous.in/" target="_blank"><strong>RIGHTOUS BRANDSADS</strong></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        function downloadProtectedFile(fileUrl, fileName) {
+            // 1. Prompt for password
+            var password = prompt("Please enter the password to download this document:");
+
+            // 2. Check Password (CHANGE '12345' TO YOUR DESIRED PASSWORD)
+            if (password === "12345") {
+                // 3. Create a temporary link to trigger download
+                var link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else if (password !== null) {
+                // User entered wrong password
+                alert("Incorrect Password!");
+            }
+        }
+    </script>
+</body>
+
+</html>
