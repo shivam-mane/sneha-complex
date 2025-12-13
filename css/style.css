@@ -120,7 +120,7 @@
         padding: 0;
     }
 
-    .navbar-light .navbar-nav .nav-link  {
+    .navbar-light .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
@@ -149,7 +149,7 @@
         opacity: 0;
         visibility: hidden;
         transition: .5s;
-        
+
     }
 
     .navbar .nav-item:hover .dropdown-menu {
@@ -203,7 +203,7 @@
     }
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     color: #DDDDDD;
 }
 
@@ -379,7 +379,7 @@
     align-items: center;
     justify-content: center;
     color: var(--light);
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 35px;
     transition: .3s;
 }
@@ -414,7 +414,7 @@
 }
 
 .footer .form-control {
-    border-color: rgba(255,255,255,0.5);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .footer .copyright {
@@ -437,4 +437,111 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+/* Sidebar Styling */
+.sidebar-widget {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sidebar-header {
+    background-color: #00B98E;
+    color: white;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: #555;
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.nav-pills .nav-link:last-child {
+    border-bottom: none;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #00B98E;
+    background-color: #f8f9fa;
+    border-left: 4px solid #00B98E;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+    background-color: #f8f9fa;
+    color: #00B98E;
+}
+
+.committee-table th {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.marathi-text {
+    font-family: 'Inter', sans-serif;
+}
+
+.doc-nav-container {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: #333;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.nav-pills .nav-link:last-child {
+    border-bottom: none;
+}
+
+/* Active State (Green background like image) */
+/* .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #00B98E;
+    /* Primary Theme Color */
+} */
+
+.nav-pills .nav-link:hover:not(.active) {
+    background-color: #f8f9fa;
+}
+
+/* PDF Viewer Container */
+.pdf-wrapper {
+    background: #e9ecef;
+    /* Gray background like image */
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    height: 650px;
+    /* Fixed height for the viewer */
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+.download-btn-container {
+    margin-top: 15px;
+    text-align: right;
 }

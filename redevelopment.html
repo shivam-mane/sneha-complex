@@ -25,63 +25,7 @@
 
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        /* Custom styles to match your Screenshot */
-        .doc-nav-container {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        .nav-pills .nav-link {
-            border-radius: 0;
-            color: #333;
-            border-bottom: 1px solid #dee2e6;
-            padding: 15px 20px;
-            text-align: left;
-            font-weight: 500;
-        }
-
-        .nav-pills .nav-link:last-child {
-            border-bottom: none;
-        }
-
-        /* Active State (Green background like image) */
-        .nav-pills .nav-link.active,
-        .nav-pills .show>.nav-link {
-            color: #fff;
-            background-color: #00B98E;
-            /* Primary Theme Color */
-        }
-
-        .nav-pills .nav-link:hover:not(.active) {
-            background-color: #f8f9fa;
-        }
-
-        /* PDF Viewer Container */
-        .pdf-wrapper {
-            background: #e9ecef;
-            /* Gray background like image */
-            padding: 10px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            height: 650px;
-            /* Fixed height for the viewer */
-        }
-
-        .pdf-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: white;
-        }
-
-        .download-btn-container {
-            margin-top: 15px;
-            text-align: right;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -179,8 +123,12 @@
 
                     <div class="col-lg-3 col-md-4">
                         <div class="doc-nav-container">
+                             <div class="sidebar-header">
+                               Revelopment Documents
+                            </div>
                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
+                               
                                 <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-profile" type="button" role="tab"
                                     aria-controls="v-pills-profile" aria-selected="true">
