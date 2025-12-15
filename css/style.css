@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #00B98E;
+    --primary: #04afaa;
     --secondary: #FF6922;
     --light: #EFFDF5;
     --dark: #0E2E50;
@@ -200,6 +200,10 @@
 @media (max-width: 768px) {
     .header-carousel .owl-nav {
         left: 25px;
+    }
+    .logo-sneha{
+        padding: 0 !important;
+        margin: 0 !important;
     }
 }
 
@@ -448,7 +452,7 @@
 }
 
 .sidebar-header {
-    background-color: #00B98E;
+    background-color: #04afaa;
     color: white;
     padding: 15px 20px;
     font-weight: 600;
@@ -472,14 +476,14 @@
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-    color: #00B98E;
+    color: #04afaa;
     background-color: #f8f9fa;
-    border-left: 4px solid #00B98E;
+    border-left: 4px solid #04afaa;
 }
 
 .nav-pills .nav-link:hover:not(.active) {
     background-color: #f8f9fa;
-    color: #00B98E;
+    color: #04afaa;
 }
 
 .committee-table th {
@@ -515,11 +519,11 @@
 /* .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #00B98E;
+    background-color: #04afaa;
     /* Primary Theme Color */
-} */
+}
 
-.nav-pills .nav-link:hover:not(.active) {
+*/ .nav-pills .nav-link:hover:not(.active) {
     background-color: #f8f9fa;
 }
 
@@ -544,4 +548,9 @@
 .download-btn-container {
     margin-top: 15px;
     text-align: right;
+}
+
+.logo-sneha {
+    padding: .5rem ;
+    margin-right: .5rem ;
 }
