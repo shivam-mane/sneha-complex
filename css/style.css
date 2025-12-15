@@ -201,7 +201,8 @@
     .header-carousel .owl-nav {
         left: 25px;
     }
-    .logo-sneha{
+
+    .logo-sneha {
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -551,6 +552,6 @@
 }
 
 .logo-sneha {
-    padding: .5rem ;
-    margin-right: .5rem ;
+    padding: .5rem;
+    margin-right: .5rem;
 }
