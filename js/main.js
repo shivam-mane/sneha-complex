@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    // Spinner
+    // Spinner: Handles the loading screen on page load
     var spinner = function () {
         setTimeout(function () {
             if ($('#spinner').length > 0) {
@@ -10,11 +10,11 @@
         }, 1);
     };
     spinner();
-    
-    // Initiate the wowjs
+
+    // Initiate the wowjs animations
     new WOW().init();
 
-    // Sticky Navbar
+    // Sticky Navbar: Adds background on scroll
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $('.nav-bar').addClass('sticky-top');
@@ -22,8 +22,8 @@
             $('.nav-bar').removeClass('sticky-top');
         }
     });
-    
-    // Back to top button
+
+    // Back to top button visibility and logic
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
@@ -32,90 +32,109 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
-    // Header carousel
+    // Header carousel initialization
     $(".header-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
         items: 1,
         dots: true,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ]
     });
 
-    // --- Unified Gallery & Modal Logic ---
-    let galleryImages = [];
-    let currentIndex = 0;
+    // Photo Enlarger & Gallery Logic
+    $(document).ready(function () {
+        let images = [];
+        let currentIdx = 0;
 
-    // Updates the list of images based on the current gallery view
-    function updateGalleryList() {
-        galleryImages = [];
-        $('.gallery-img').each(function () {
-            galleryImages.push($(this).attr('src'));
+        // Scans the page for all images with 'gallery-img' class
+        function updateImageList() {
+            images = [];
+            $('.gallery-img').each(function () {
+                images.push($(this).attr('src'));
+            });
+        }
+
+        // Click event for any gallery image
+        $(document).on('click', '.gallery-img', function () {
+            updateImageList();
+            const src = $(this).attr('src');
+            currentIdx = images.indexOf(src);
+            showGalleryModal(src);
         });
-    }
 
-    function showImage(index) {
-        if (galleryImages.length === 0) return;
-        
-        // Loop around logic
-        if (index < 0) index = galleryImages.length - 1;
-        if (index >= galleryImages.length) index = 0;
-        
-        currentIndex = index;
-        $('#modalImage').attr('src', galleryImages[currentIndex]);
+        // Click event for marquee/notice links
+        $(document).on('click', '.pop-image-link', function () {
+            const src = $(this).data('img');
+            images = [src];
+            currentIdx = 0;
+            showGalleryModal(src);
+        });
 
-        // Hide arrows if it's just one image (like from a marquee link)
-        if (galleryImages.length <= 1) {
-            $('#prevGalleryBtn, #nextGalleryBtn').hide();
-        } else {
-            $('#prevGalleryBtn, #nextGalleryBtn').show();
+        function showGalleryModal(src) {
+            $('#modalImage').attr('src', src);
+            $('#imageModal').modal('show');
+
+            // Toggle navigation arrows based on total images
+            if (images.length <= 1) {
+                $('#prevBtn, #nextBtn').hide();
+            } else {
+                $('#prevBtn, #nextBtn').show();
+            }
         }
-    }
 
-    // Event: Click Gallery Image
-    $(document).on('click', '.gallery-img', function () {
-        updateGalleryList();
-        let clickedSrc = $(this).attr('src');
-        currentIndex = galleryImages.indexOf(clickedSrc);
-        showImage(currentIndex);
-        $('#imageModal').modal('show');
+        // Navigation logic for Modal
+        $('#nextBtn').click(function (e) {
+            e.stopPropagation();
+            currentIdx = (currentIdx + 1) % images.length;
+            $('#modalImage').attr('src', images[currentIdx]);
+        });
+
+        $('#prevBtn').click(function (e) {
+            e.stopPropagation();
+            currentIdx = (currentIdx - 1 + images.length) % images.length;
+            $('#modalImage').attr('src', images[currentIdx]);
+        });
     });
 
-    // Event: Click Marquee Link
-    $(document).on('click', '.pop-image-link', function (e) {
-        e.preventDefault();
-        let clickedSrc = $(this).data('img');
-        galleryImages = [clickedSrc]; // Single image mode
-        currentIndex = 0;
-        showImage(currentIndex);
-        $('#imageModal').modal('show');
-    });
+    // Security: Anti-Screenshot & Anti-Copying Measures
+    // 1. Disable Right Click
+    document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Navigation Button Listeners
-    $('#prevGalleryBtn').click(function (e) {
-        e.stopPropagation();
-        showImage(currentIndex - 1);
-    });
-
-    $('#nextGalleryBtn').click(function (e) {
-        e.stopPropagation();
-        showImage(currentIndex + 1);
-    });
-
-    // Keyboard Support
-    $(document).keydown(function(e) {
-        if ($('#imageModal').is(':visible')) {
-            if (e.keyCode == 37) showImage(currentIndex - 1); // Left Arrow
-            if (e.keyCode == 39) showImage(currentIndex + 1); // Right Arrow
+    // 2. Disable F12, Ctrl+Shift+I (DevTools), Ctrl+S (Save), and Ctrl+P (Print)
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || 
+            (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) || 
+            (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0))) {
+            return false;
         }
-    });
+    };
+
+    // Global PDF Download Protection Function
+    // This is used by the buttons on the Redevelopment and Minutes pages
+    window.downloadProtectedFile = function(fileUrl, fileName) {
+        var password = prompt("Please enter the password to download this document:");
+        
+        // Security check for password 
+        if (password === "12345") {
+            var link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else if (password !== null) {
+            alert("Incorrect Password!");
+        }
+    };
 
 })(jQuery);
