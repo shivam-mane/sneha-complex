@@ -8,43 +8,31 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
     <link href="img/logo-sneha.png" rel="icon">
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="container-fluid bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
@@ -62,32 +50,12 @@
                         <a href="about.html" class="nav-item nav-link">About Society</a>
                         <a href="redevelopment.html" class="nav-item nav-link">Redevelopment Docs</a>
                         <a href="minutes.html" class="nav-item nav-link">AGM/SGM Minutes</a>
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" class="dropdown-item">Property List</a>
-                                <a href="property-type.html" class="dropdown-item">Property Type</a>
-                                <a href="property-agent.html" class="dropdown-item">Property Agent</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Error</a>
-                            </div>
-                        </div> -->
                         <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-
                 </div>
             </nav>
         </div>
-        <!-- Navbar End -->
-
-
-        <!-- Header Start -->
         <div class="container-fluid header bg-white p-0">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5">
@@ -95,373 +63,152 @@
                     <nav aria-label="breadcrumb animated fadeIn">
                         <ol class="breadcrumb text-uppercase">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
                             <li class="breadcrumb-item text-body active" aria-current="page">Gallery</li>
                         </ol>
                     </nav>
                 </div>
-
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img\gallery\new\photo.jpg" alt="">
+                            <img class="img-fluid" src="img/gallery/new/photo.jpg" alt="">
                         </div>
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img\gallery\new\photo_2.jpg" alt="">
+                            <img class="img-fluid" src="img/gallery/new/photo_2.jpg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-
-
-        <!-- Search Start -->
-        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+        <div class="container-fluid bg-primary mb-3 pt-3 pb-2 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
-                <!-- <div class="row g-2">
-                    <div class="col-md-10">
-                        <div class="row g-2">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword">
-                            </div>
-                            <div class="col-md-4">
-                                <select class="form-select border-0 py-3">
-                                    <option selected>Property Type</option>
-                                    <option value="1">Property Type 1</option>
-                                    <option value="2">Property Type 2</option>
-                                    <option value="3">Property Type 3</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select class="form-select border-0 py-3">
-                                    <option selected>Location</option>
-                                    <option value="1">Location 1</option>
-                                    <option value="2">Location 2</option>
-                                    <option value="3">Location 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-dark border-0 w-100 py-3">Search</button>
-                    </div>
-                </div> -->
+                <marquee class="text-light" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                    <strong>
+                        <a href="javascript:void(0);" class="pop-image-link" data-img="img/Sneha_news.webp" style="color: inherit; text-decoration: none; cursor: pointer;">
+                            सूचना : रविवार, 21 डिसेंबर 2025 | स्नेहा कॉम्प्लेक्स 119 टॉवर पुनर्विकासाबाबत विशेष सर्वसाधारण सभा (येथे क्लिक करा)
+                        </a>
+                    </strong>
+                </marquee>
             </div>
         </div>
-        <!-- Search End -->
-
-        <!-- Gallery Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-4">
-
                     <div class="col-lg-4 col-md-5">
                         <div class="sidebar-widget">
-                            <div class="sidebar-header">
-                                फोटो गॅलरी
-                            </div>
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                                aria-orientation="vertical">
-                                <button class="nav-link active marathi-text" id="v-pills-other-tab"
-                                    data-bs-toggle="pill" data-bs-target="#v-pills-other" type="button" role="tab"
-                                    aria-controls="v-pills-other" aria-selected="false">
-                                    स्नेहा कॉम्लेक्स ११९ टॉवर सरकारी संस्था मर्यादीत
-
-                                </button>
-                                <button class="nav-link  marathi-text" id="v-pills-main-tab" data-bs-toggle="pill"
-                                    data-bs-target="#v-pills-main" type="button" role="tab" aria-controls="v-pills-main"
-                                    aria-selected="true">
-                                    सर्वसाधारण सभा
-
-                                </button>
-                                <!-- <button class="nav-link  marathi-text" id="v-pills-society-tab" data-bs-toggle="pill"
-                                    data-bs-target="#v-pills-society" type="button" role="tab"
-                                    aria-controls="v-pills-society" aria-selected="false">
-                                    सोसायटी पदाधिकारी
-                                </button> -->
-
+                            <div class="sidebar-header">फोटो गॅलरी</div>
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <button class="nav-link active marathi-text" id="v-pills-other-tab" data-bs-toggle="pill" data-bs-target="#v-pills-other" type="button" role="tab">स्नेहा कॉम्लेक्स ११९ टॉवर</button>
+                                <button class="nav-link marathi-text" id="v-pills-main-tab" data-bs-toggle="pill" data-bs-target="#v-pills-main" type="button" role="tab">सर्वसाधारण सभा</button>
+                                <button class="nav-link marathi-text" id="v-pills-society-tab" data-bs-toggle="pill" data-bs-target="#v-pills-society" type="button" role="tab">सूचना</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-8 col-md-7">
                         <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-other" role="tabpanel"
-                                aria-labelledby="v-pills-other-tab">
+                            <div class="tab-pane fade show active" id="v-pills-other" role="tabpanel">
                                 <div class="bg-light rounded p-4 border">
-                                    <h3 class="mb-4 marathi-text">स्नेहा कॉम्लेक्स ११९ टॉवर सरकारी संस्था
-                                        मर्यादीत</h3>
-                                    <div class="row g-3" id="galleryGrid">
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/4.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 4">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/8.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 8">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/5.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 5">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/6.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 6">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/1.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 1">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/2.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 2">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/3.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 3">
-                                        </div>
-
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/7.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 7">
-                                        </div>
-
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/9.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 9">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/10.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 10">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/11.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 11">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/12.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 12">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/13.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 13">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/14.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 14">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/15.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 15">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/16.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 16">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/17.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 17">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/18.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 18">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/19.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 19">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/20.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 20">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/21.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 21">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/22.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 22">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/23.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 23">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/24.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 24">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/25.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 25">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/26.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 26">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/27.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 27">
-                                        </div>
-                                        <!-- <div class="col-6 col-md-4 col-lg-3">
-        <img src="img/gallery/new/28.webp" class="img-fluid rounded shadow-sm" alt="Gallery Image 28">
-    </div> -->
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/29.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 29">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/new/30.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 30">
-                                        </div>
+                                    <h3 class="mb-4 marathi-text">स्नेहा कॉम्लेक्स ११९ टॉवर सरकारी संस्था मर्यादीत</h3>
+                                    <div class="row g-3">
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/4.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/8.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/5.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/6.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/1.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/2.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/3.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/7.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/9.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/10.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/11.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/12.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/16.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/17.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/18.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/19.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/20.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/15.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/13.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/14.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/21.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/updated/22.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
                                     </div>
-
-
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="v-pills-main" role="tabpanel"
-                                aria-labelledby="v-pills-main-tab">
+                            <div class="tab-pane fade" id="v-pills-main" role="tabpanel">
                                 <div class="bg-light rounded p-4 border">
-                                    <h3 class="mb-4 marathi-text">सर्वसाधारण सभा </h3>
-
-                                    <div class="row g-3" id="galleryGrid">
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/4.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 4">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/1.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 1">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/12.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 12">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/8.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 8">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/5.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 5">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/6.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 6">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/7.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 7">
-                                        </div>
-
-
-
-
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/9.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 9">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/10.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 10">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/11.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 11">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/2.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 2">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="img/gallery/sabha/3.webp" class="img-fluid rounded shadow-sm"
-                                                alt="Gallery Image 3">
-                                        </div>
-
-
+                                    <h3 class="mb-4 marathi-text">सर्वसाधारण सभा</h3>
+                                    <div class="row g-3">
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/4.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/1.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/12.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/8.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/5.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/6.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/7.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/9.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/10.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/11.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/2.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/gallery/sabha/3.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
                                     </div>
-
                                 </div>
                             </div>
 
-
-
-
-
+                            <div class="tab-pane fade" id="v-pills-society" role="tabpanel">
+                                <div class="bg-light rounded p-4 border">
+                                    <h3 class="mb-4 marathi-text">सूचना</h3>
+                                    <div class="row g-3">
+                                        <div class="col-6 col-md-4 col-lg-3"><img src="img/Sneha_news.webp" class="img-fluid rounded gallery-img" alt="Gallery"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <!-- Gallery End -->
-
-        <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-4 col-md-6">
                         <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mumbai Pune Bypass Road Survey No, 119,
-                            Sneha Complex Rd, Motiram Nagar, Warje, Pune, Maharashtra 411058</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mumbai Pune Bypass Road Survey No, 119, Warje, Pune, 411058</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 79720 30648 / 87886 12275</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>chairman@snehacomplex.in</p>
-                        <div class="d-flex pt-2 d-none">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
                         <a class="btn btn-link text-white-50" href="index.html">Home</a>
-                        <a class="btn btn-link text-white-50" href="about.html">About Society</a>
-                        <a class="btn btn-link text-white-50" href="redevelopment.html">Redevelopment Docs</a>
-                        <a class="btn btn-link text-white-50" href="minutes.html">AGM/SGM Minutes</a>
                         <a class="btn btn-link text-white-50" href="gallery.html">Gallery</a>
-                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h5 class="text-white mb-4">Photo Gallery</h5>
-                        <div class="row g-2 pt-2">
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg"
-                                    alt=""></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-12 text-center mb-3 mb-md-0">
-                            <p class="copyright-text">Design &amp; Developed By <a href="https://rightous.in/"
-                                    target="_blank"><strong>RIGHTOUS BRANDSADS</strong></a></p>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-body p-0 text-center position-relative">
+                        <button type="button" class="btn-close btn-close-gallery" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
+                        <button class="gallery-nav-btn position-absolute top-50 start-0 translate-middle-y ms-2" id="prevBtn">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
 
+                        <img src="" id="modalImage" class="img-fluid rounded shadow-lg">
 
-        <!-- Back to Top -->
+                        <button class="gallery-nav-btn position-absolute top-50 end-0 translate-middle-y me-2" id="nextBtn">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -469,60 +216,73 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
     <script>
-        (function () {
-            var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
-            if (!items.length) return;
+        $(document).ready(function () {
+            let images = [];
+            let currentIdx = 0;
 
-            // Build a sources array from data attributes
-            var sources = items.map(function (el) { return el.getAttribute('data-src'); });
-            var currentIndex = 0;
-
-            // Create Bootstrap modal markup once
-            var modalHtml = '\n<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">\n' +
-                '  <div class="modal-dialog modal-dialog-centered modal-xl">\n' +
-                '    <div class="modal-content bg-dark">\n' +
-                '      <div class="modal-body p-0 position-relative">\n' +
-                '        <button type="button" class="btn btn-light position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>\n' +
-                '        <button type="button" class="btn btn-light position-absolute top-50 start-0 translate-middle-y ms-2" id="prevBtn"><i class="bi bi-chevron-left"></i></button>\n' +
-                '        <button type="button" class="btn btn-light position-absolute top-50 end-0 translate-middle-y me-2" id="nextBtn"><i class="bi bi-chevron-right"></i></button>\n' +
-                '        <img id="modalImage" src="" class="w-100" alt="Gallery Image"/>\n' +
-                '      </div>\n' +
-                '    </div>\n' +
-                '  </div>\n' +
-                '</div>';
-
-            var container = document.body;
-            container.insertAdjacentHTML('beforeend', modalHtml);
-
-            var modalEl = document.getElementById('galleryModal');
-            var modalImg = document.getElementById('modalImage');
-            var prevBtn = document.getElementById('prevBtn');
-            var nextBtn = document.getElementById('nextBtn');
-
-            function show(index) {
-                if (index < 0) index = sources.length - 1;
-                if (index >= sources.length) index = 0;
-                currentIndex = index;
-                modalImg.src = sources[currentIndex];
+            // Function to find all gallery images in the visible tab
+            function updateImageList() {
+                images = [];
+                // Find all .gallery-img tags
+                $('.gallery-img').each(function() {
+                    images.push($(this).attr('src'));
+                });
             }
 
-            items.forEach(function (el, idx) {
-                el.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    show(idx);
-                    var modal = new bootstrap.Modal(modalEl);
-                    modal.show();
-                });
+            // Click on a gallery image
+            $(document).on('click', '.gallery-img', function() {
+                updateImageList();
+                const src = $(this).attr('src');
+                currentIdx = images.indexOf(src);
+                showModal(src);
             });
 
-            prevBtn.addEventListener('click', function () { show(currentIndex - 1); });
-            nextBtn.addEventListener('click', function () { show(currentIndex + 1); });
-        })();
-    </script>
+            // Click on the marquee link
+            $(document).on('click', '.pop-image-link', function() {
+                const src = $(this).data('img');
+                images = [src]; // Solo view for marquee
+                currentIdx = 0;
+                showModal(src);
+            });
 
+            function showModal(src) {
+                $('#modalImage').attr('src', src);
+                $('#imageModal').modal('show');
+                
+                // Hide arrows if only one image exists
+                if(images.length <= 1) {
+                    $('#prevBtn, #nextBtn').hide();
+                } else {
+                    $('#prevBtn, #nextBtn').show();
+                }
+            }
+
+            // Next Button
+            $('#nextBtn').click(function(e) {
+                e.stopPropagation();
+                currentIdx = (currentIdx + 1) % images.length;
+                $('#modalImage').attr('src', images[currentIdx]);
+            });
+
+            // Prev Button
+            $('#prevBtn').click(function(e) {
+                e.stopPropagation();
+                currentIdx = (currentIdx - 1 + images.length) % images.length;
+                $('#modalImage').attr('src', images[currentIdx]);
+            });
+
+            // Keyboard navigation
+            $(document).keydown(function(e) {
+                if ($('#imageModal').is(':visible')) {
+                    if (e.keyCode == 37) $('#prevBtn').click(); // Left arrow
+                    if (e.keyCode == 39) $('#nextBtn').click(); // Right arrow
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -555,3 +555,111 @@
     padding: .5rem;
     margin-right: .5rem;
 }
+
+.gallery-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.pop-image-link:hover {
+    text-decoration: underline !important;
+    color: #ffc107 !important;
+    /* Golden color on hover for marquee */
+}
+
+#modalImage {
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.modal {
+    z-index: 10000 !important;
+}
+
+.bg-transparent-1 {
+    background-color: rgb(31, 31, 31) !important;
+}
+
+/* Ensure the modal background is dark enough to see the white buttons */
+#imageModal .modal-content {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Gallery Navigation Buttons */
+.gallery-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 2rem;
+    transition: 0.3s;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.gallery-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #000;
+}
+
+/* Properly position the close button */
+.btn-close-gallery {
+    font-size: 1.5rem;
+    opacity: 1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: 10000;
+}
+
+/* --- Gallery Navigation Styles --- */
+#imageModal .modal-content {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.gallery-nav-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 2rem;
+    transition: 0.3s;
+    border-radius: 5px;
+    z-index: 1051;
+    cursor: pointer;
+}
+
+.gallery-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+.btn-close-gallery {
+    font-size: 1.2rem;
+    opacity: 1;
+    background-color: #fff !important;
+    padding: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 1060;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}

@@ -11,10 +11,8 @@
     };
     spinner();
     
-    
     // Initiate the wowjs
     new WOW().init();
-
 
     // Sticky Navbar
     $(window).scroll(function () {
@@ -24,7 +22,6 @@
             $('.nav-bar').removeClass('sticky-top');
         }
     });
-    
     
     // Back to top button
     $(window).scroll(function () {
@@ -38,7 +35,6 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-
 
     // Header carousel
     $(".header-carousel").owlCarousel({
@@ -54,28 +50,72 @@
         ]
     });
 
+    // --- Unified Gallery & Modal Logic ---
+    let galleryImages = [];
+    let currentIndex = 0;
 
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 24,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            992:{
-                items:2
-            }
+    // Updates the list of images based on the current gallery view
+    function updateGalleryList() {
+        galleryImages = [];
+        $('.gallery-img').each(function () {
+            galleryImages.push($(this).attr('src'));
+        });
+    }
+
+    function showImage(index) {
+        if (galleryImages.length === 0) return;
+        
+        // Loop around logic
+        if (index < 0) index = galleryImages.length - 1;
+        if (index >= galleryImages.length) index = 0;
+        
+        currentIndex = index;
+        $('#modalImage').attr('src', galleryImages[currentIndex]);
+
+        // Hide arrows if it's just one image (like from a marquee link)
+        if (galleryImages.length <= 1) {
+            $('#prevGalleryBtn, #nextGalleryBtn').hide();
+        } else {
+            $('#prevGalleryBtn, #nextGalleryBtn').show();
+        }
+    }
+
+    // Event: Click Gallery Image
+    $(document).on('click', '.gallery-img', function () {
+        updateGalleryList();
+        let clickedSrc = $(this).attr('src');
+        currentIndex = galleryImages.indexOf(clickedSrc);
+        showImage(currentIndex);
+        $('#imageModal').modal('show');
+    });
+
+    // Event: Click Marquee Link
+    $(document).on('click', '.pop-image-link', function (e) {
+        e.preventDefault();
+        let clickedSrc = $(this).data('img');
+        galleryImages = [clickedSrc]; // Single image mode
+        currentIndex = 0;
+        showImage(currentIndex);
+        $('#imageModal').modal('show');
+    });
+
+    // Navigation Button Listeners
+    $('#prevGalleryBtn').click(function (e) {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+    });
+
+    $('#nextGalleryBtn').click(function (e) {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+    });
+
+    // Keyboard Support
+    $(document).keydown(function(e) {
+        if ($('#imageModal').is(':visible')) {
+            if (e.keyCode == 37) showImage(currentIndex - 1); // Left Arrow
+            if (e.keyCode == 39) showImage(currentIndex + 1); // Right Arrow
         }
     });
-    
-})(jQuery);
 
+})(jQuery);
