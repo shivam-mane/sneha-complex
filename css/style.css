@@ -1,5 +1,5 @@
 /********** Template CSS **********/
-/* Disable text selection and callouts on mobile */
+/* Security: Prevent text selection across the site */
 body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -9,11 +9,31 @@ body {
     user-select: none;
 }
 
+/* Mobile PDF Workaround: Disable interaction with the iframe to hide browser 'Open' buttons */
+@media (max-width: 768px) {
+    .pdf-wrapper {
+        position: relative;
+    }
+    /* This creates an invisible shield over the iframe */
+    .pdf-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: transparent;
+    }
+    /* Ensure the iframe itself is still visible but unclickable */
+    .pdf-frame {
+        pointer-events: none;
+    }
+}
+
 /* Hide content when printing (prevents "Print to PDF" screenshots) */
 @media print {
-    body {
-        display: none !important;
-    }
+    body { display: none !important; }
 }
 
 
@@ -142,17 +162,6 @@ body {
         margin-right: 0;
         padding: 10px 0;
     }
-
-    .navbar-light .navbar-nav {
-        border-top: 1px solid #EEEEEE;
-    }
-    .pdf-frame {
-    pointer-events: none;
-}
-
-.download-btn-container {
-    pointer-events: auto;
-}
 
 }
 
@@ -542,15 +551,7 @@ body {
     border-bottom: none;
 }
 
-/* Active State (Green background like image) */
-/* .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #04afaa;
-    /* Primary Theme Color */
-}
-
-*/ .nav-pills .nav-link:hover:not(.active) {
+ .nav-pills .nav-link:hover:not(.active) {
     background-color: #f8f9fa;
 }
 

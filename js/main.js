@@ -55,7 +55,6 @@
         let images = [];
         let currentIdx = 0;
 
-        // Scans the page for all images with 'gallery-img' class
         function updateImageList() {
             images = [];
             $('.gallery-img').each(function () {
@@ -63,7 +62,6 @@
             });
         }
 
-        // Click event for any gallery image
         $(document).on('click', '.gallery-img', function () {
             updateImageList();
             const src = $(this).attr('src');
@@ -71,7 +69,6 @@
             showGalleryModal(src);
         });
 
-        // Click event for marquee/notice links
         $(document).on('click', '.pop-image-link', function () {
             const src = $(this).data('img');
             images = [src];
@@ -83,7 +80,6 @@
             $('#modalImage').attr('src', src);
             $('#imageModal').modal('show');
 
-            // Toggle navigation arrows based on total images
             if (images.length <= 1) {
                 $('#prevBtn, #nextBtn').hide();
             } else {
@@ -91,7 +87,6 @@
             }
         }
 
-        // Navigation logic for Modal
         $('#nextBtn').click(function (e) {
             e.stopPropagation();
             currentIdx = (currentIdx + 1) % images.length;
@@ -105,28 +100,37 @@
         });
     });
 
-    // Security: Anti-Screenshot & Anti-Copying Measures
+    // ==========================================
+    // SECURITY: Disable Copy, Right-Click, and Screenshots
+    // ==========================================
+
     // 1. Disable Right Click
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // 2. Disable F12, Ctrl+Shift+I (DevTools), Ctrl+S (Save), and Ctrl+P (Print)
+    // 2. Disable Keyboard Shortcuts (F12, Ctrl+Shift+I, Ctrl+U, PrintScreen, Ctrl+S, Ctrl+P)
     document.onkeydown = function(e) {
-        if (e.keyCode == 123 || 
-            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || 
-            (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) || 
-            (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0))) {
+        if (e.keyCode == 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || // Ctrl+Shift+C
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
+            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || // Ctrl+U
+            (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) || // Ctrl+S
+            (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) || // Ctrl+P
+            (e.keyCode == 44)) { // PrintScreen
             return false;
         }
     };
 
+    // 3. Disable Text Selection/Copying via JS (Backup to CSS)
+    document.onselectstart = function() { return false; };
+    document.oncopy = function() { return false; };
+
     /**
      * Global PDF Download Protection Function
-     * This is attached to 'window' so it can be called from HTML onclick attributes.
      */
     window.downloadProtectedFile = function(fileUrl, fileName) {
         var password = prompt("Please enter the password to download this document:");
         
-        // Security check for password (Change '12345' as needed)
         if (password === "sneha@123") {
             var link = document.createElement('a');
             link.href = fileUrl;
