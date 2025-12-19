@@ -16,6 +16,15 @@ body {
     }
 }
 
+/* Security to hide "Open in new tab" button on mobile browsers */
+/* .pdf-frame {
+    pointer-events: none;
+}
+
+.download-btn-container {
+    pointer-events: auto;
+} */
+
 :root {
     --primary: #04afaa;
     --secondary: #FF6922;

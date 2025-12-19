@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>स्नेहा कॉम्लेक्स ११९ टॉवर सरकारी संस्था मर्यादीत</title>
+    <title>स्नेहा कॉम्लेक्स ११९ टॉवर सहकारी संस्था संघ मर्यादीत</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -88,8 +88,7 @@
                 <marquee class="text-light" behavior="scroll" direction="left" onmouseover="this.stop();"
                     onmouseout="this.start();">
                     <strong>
-                        <a href="javascript:void(0);" class="pop-image-link"
-                            data-img="img/Sneha_news.webp"
+                        <a href="javascript:void(0);" class="pop-image-link" data-img="img/Sneha_news.webp"
                             style="color: inherit; text-decoration: none; cursor: pointer;">
                             सूचना : रविवार, 21 डिसेंबर 2025 | स्नेहा कॉम्प्लेक्स 119 टॉवर पुनर्विकासाबाबत विशेष
                             सर्वसाधारण सभा (येथे क्लिक करा)
@@ -310,18 +309,18 @@
                     <div class="col-lg-4 col-md-6">
                         <h5 class="text-white mb-4">Photo Gallery</h5>
                         <div class="row g-2 pt-2">
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/4.webp"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/8.webp"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/5.webp"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/1.webp"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/2.webp"
-                                    alt=""></div>
-                            <div class="col-4"><img class="img-fluid rounded bg-light p-1" src="img/gallery/updated/3.webp"
-                                    alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/4.webp" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/8.webp" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/5.webp" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/1.webp" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/2.webp" alt=""></div>
+                            <div class="col-4"><img class="img-fluid rounded bg-light p-1 gallery-img"
+                                    src="img/gallery/updated/3.webp" alt=""></div>
                         </div>
                     </div>
                 </div>
@@ -361,26 +360,7 @@
 
     <script src="js/main.js"></script>
 
-    <script>
-        function downloadProtectedFile(fileUrl, fileName) {
-            // 1. Prompt for password
-            var password = prompt("Please enter the password to download this document:");
-
-            // 2. Check Password (CHANGE '12345' TO YOUR DESIRED PASSWORD)
-            if (password === "12345") {
-                // 3. Create a temporary link to trigger download
-                var link = document.createElement('a');
-                link.href = fileUrl;
-                link.download = fileName;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            } else if (password !== null) {
-                // User entered wrong password
-                alert("Incorrect Password!");
-            }
-        }
-    </script>
+    
 </body>
 
 </html>

@@ -136,5 +136,22 @@
             alert("Incorrect Password!");
         }
     };
+function downloadProtectedFile(fileUrl, fileName) {
+            // 1. Prompt for password
+            var password = prompt("Please enter the password to download this document:");
 
+            // 2. Check Password (CHANGE '12345' TO YOUR DESIRED PASSWORD)
+            if (password === "12345") {
+                // 3. Create a temporary link to trigger download
+                var link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else if (password !== null) {
+                // User entered wrong password
+                alert("Incorrect Password!");
+            }
+        }
 })(jQuery);
