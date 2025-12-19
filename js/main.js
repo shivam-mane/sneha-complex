@@ -119,13 +119,15 @@
         }
     };
 
-    // Global PDF Download Protection Function
-    // This is used by the buttons on the Redevelopment and Minutes pages
+    /**
+     * Global PDF Download Protection Function
+     * This is attached to 'window' so it can be called from HTML onclick attributes.
+     */
     window.downloadProtectedFile = function(fileUrl, fileName) {
         var password = prompt("Please enter the password to download this document:");
         
-        // Security check for password 
-        if (password === "12345") {
+        // Security check for password (Change '12345' as needed)
+        if (password === "sneha@123") {
             var link = document.createElement('a');
             link.href = fileUrl;
             link.download = fileName;
@@ -136,22 +138,5 @@
             alert("Incorrect Password!");
         }
     };
-function downloadProtectedFile(fileUrl, fileName) {
-            // 1. Prompt for password
-            var password = prompt("Please enter the password to download this document:");
 
-            // 2. Check Password (CHANGE '12345' TO YOUR DESIRED PASSWORD)
-            if (password === "12345") {
-                // 3. Create a temporary link to trigger download
-                var link = document.createElement('a');
-                link.href = fileUrl;
-                link.download = fileName;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            } else if (password !== null) {
-                // User entered wrong password
-                alert("Incorrect Password!");
-            }
-        }
 })(jQuery);

@@ -16,14 +16,6 @@ body {
     }
 }
 
-/* Security to hide "Open in new tab" button on mobile browsers */
-/* .pdf-frame {
-    pointer-events: none;
-}
-
-.download-btn-container {
-    pointer-events: auto;
-} */
 
 :root {
     --primary: #04afaa;
@@ -154,6 +146,14 @@ body {
     .navbar-light .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
+    .pdf-frame {
+    pointer-events: none;
+}
+
+.download-btn-container {
+    pointer-events: auto;
+}
+
 }
 
 .navbar-light .navbar-brand {
