@@ -164,7 +164,7 @@
         }
     };
 
-    // 2. Secure PDF Viewer (Uses Canvas to hide "Open in New Tab" on Mobile)
+    // 2. Secure PDF Viewer (Canvas Rendering to block "Open in New Tab")
     window.viewSecurePDF = function (fileUrl) {
         var password = prompt("Enter password to view this document:");
         if (password !== "sneha@123") {
@@ -172,20 +172,20 @@
             return;
         }
 
-        // Setup Fullscreen Overlay with scrollable area
+        // Overlay Construction
         var viewerHtml = `
-        <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; overflow-y:auto; -webkit-overflow-scrolling:touch;">
-            <div style="position:sticky; top:0; padding:15px; background:#222; display:flex; justify-content:space-between; align-items:center; z-index:10001; border-bottom: 1px solid #444;">
-                <span style="color:white; font-family:sans-serif; font-weight:bold;">Protected Preview</span>
+        <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:10000; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+            <div style="position:sticky; top:0; padding:15px; background:#111; display:flex; justify-content:space-between; align-items:center; z-index:10001; border-bottom: 2px solid #333;">
+                <span style="color:white; font-family:sans-serif; font-weight:bold;">SECURE PREVIEW - SNEHA COMPLEX</span>
                 <button onclick="$('#pdfOverlay').remove()" style="background:#ff4d4d; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">CLOSE</button>
             </div>
             <div id="pdfCanvasContainer" style="display:flex; flex-direction:column; align-items:center; padding:20px 10px;">
-                <p id="pdfLoading" style="color:white; font-family:sans-serif;">Decrypting and Loading Secure Preview...</p>
+                <p id="pdfLoading" style="color:white; font-family:sans-serif; margin-top:50px;">Decrypting Secure Preview...</p>
             </div>
         </div>`;
         $('body').append(viewerHtml);
 
-        // PDF.js Initialization
+        // PDF.js Engine Setup
         var pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
@@ -193,7 +193,6 @@
         loadingTask.promise.then(function(pdf) {
             $('#pdfLoading').remove();
             
-            // Loop through pages and render to Canvas
             for (var pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 renderPage(pdf, pageNum);
             }
@@ -206,12 +205,14 @@
             var canvas = document.createElement('canvas');
             canvas.style.marginBottom = "25px";
             canvas.style.width = "95%"; 
-            canvas.style.maxWidth = "900px";
+            canvas.style.maxWidth = "850px";
             canvas.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
+            // Prevent interaction with the canvas
+            canvas.style.pointerEvents = "none";
             document.getElementById('pdfCanvasContainer').appendChild(canvas);
 
             pdf.getPage(num).then(function(page) {
-                var viewport = page.getViewport({scale: 2.0}); // High quality scale
+                var viewport = page.getViewport({scale: 2.0}); 
                 var context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
@@ -224,7 +225,7 @@
             });
         }
 
-        // Prevent Back button from closing page (closes PDF overlay instead)
+        // Mobile "Back" button management
         window.history.pushState({viewingPdf: true}, "");
         $(window).on('popstate.pdfClose', function() {
             $('#pdfOverlay').remove();

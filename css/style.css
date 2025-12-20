@@ -776,4 +776,11 @@
         margin-right: 16px;
     }
 }
+
+#pdfCanvasContainer canvas {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none; /* Crucial: stops mobile browsers from interacting with the canvas */
+}
 /* CSS Watermark Overlay */
