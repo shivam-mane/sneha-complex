@@ -1,12 +1,38 @@
 /********** Template CSS **********/
 /* Security: Prevent text selection across the site */
-body {
+/* Disable long-press and tap-highlight on Mobile */
+* {
+    -webkit-touch-callout: none !important; /* Disables Mobile context menu */
+    -webkit-user-select: none !important;   /* Disables all text/image selection */
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent content from being visible when user tries to "Print to PDF" */
+@media print {
+    body { display: none !important; }
+}
+
+/* For browsers that support it, this prevents content from appearing in screen shares */
+.container-xxl {
+    isolation: isolate;
+}
+
+
+/* Extra layer: prevent long-press and selection on mobile devices */
+* {
     -webkit-touch-callout: none;
+    /* iOS Safari */
     -webkit-user-select: none;
+    /* Safari */
     -khtml-user-select: none;
+    /* Konqueror HTML */
     -moz-user-select: none;
+    /* Old versions of Firefox */
     -ms-user-select: none;
+    /* Internet Explorer/Edge */
     user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 /* Mobile PDF Workaround: Disable interaction with the iframe to hide browser 'Open' buttons */
@@ -14,6 +40,7 @@ body {
     .pdf-wrapper {
         position: relative;
     }
+
     /* This creates an invisible shield over the iframe */
     .pdf-wrapper::after {
         content: "";
@@ -25,16 +52,13 @@ body {
         z-index: 10;
         background: transparent;
     }
+
     /* Ensure the iframe itself is still visible but unclickable */
     .pdf-frame {
         pointer-events: none;
     }
 }
 
-/* Hide content when printing (prevents "Print to PDF" screenshots) */
-@media print {
-    body { display: none !important; }
-}
 
 
 :root {
@@ -551,7 +575,7 @@ body {
     border-bottom: none;
 }
 
- .nav-pills .nav-link:hover:not(.active) {
+.nav-pills .nav-link:hover:not(.active) {
     background-color: #f8f9fa;
 }
 
@@ -708,4 +732,64 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Default for Desktop */
+.responsive-logo {
+    width: 15rem;
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 576px) {
+    .responsive-logo {
+        width: 180px;
+        /* Forces logo to be smaller so toggler fits */
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+        /* Removes extra spacing */
+    }
+
+    .px-4 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+/* Specific fix for 1024px and medium-large screens */
+@media (max-width: 1200px) {
+    /* Shrink the text logo so it doesn't push the menu away */
+
+
+
+
+
+    /* Adjust padding to save horizontal space */
+    .px-4 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 12px;
+        margin-right: 16px;
+    }
+}
+/* CSS Watermark Overlay */
+.tab-content, .about-img {
+    position: relative;
+}
+
+.tab-content::after {
+    content: "SNEHA COMPLEX - PROTECTED PROPERTY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.05); /* Very light grey */
+    white-space: nowrap;
+    pointer-events: none; /* Allows clicking through the text */
+    z-index: 1000;
 }

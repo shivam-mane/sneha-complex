@@ -100,37 +100,73 @@
         });
     });
 
-    // ==========================================
-    // SECURITY: Disable Copy, Right-Click, and Screenshots
-    // ==========================================
+    // ============================================================
+    // CRITICAL SECURITY: Anti-Capture & Blackout Provision
+    // ============================================================
 
-    // 1. Disable Right Click
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    // 1. Blackout Logic: Detects focus loss
+    const blackout = () => {
+        $('body').css({
+            'opacity': '0',
+            'filter': 'blur(100px)',
+            'pointer-events': 'none',
+            'transition': 'opacity 0.1s ease'
+        });
+    };
 
-    // 2. Disable Keyboard Shortcuts (F12, Ctrl+Shift+I, Ctrl+U, PrintScreen, Ctrl+S, Ctrl+P)
-    document.onkeydown = function(e) {
-        if (e.keyCode == 123 || // F12
-            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-            (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || // Ctrl+Shift+C
-            (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || // Ctrl+U
-            (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) || // Ctrl+S
-            (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) || // Ctrl+P
-            (e.keyCode == 44)) { // PrintScreen
+    const restore = () => {
+        $('body').css({
+            'opacity': '1',
+            'filter': 'none',
+            'pointer-events': 'auto'
+        });
+    };
+
+    // Detect Focus Loss (Triggers when Snipping Tool or OS Capture tool appears)
+    window.addEventListener('blur', blackout);
+    window.addEventListener('focus', restore);
+    
+    // Detect Tab/Window switching or browser minimization
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') blackout();
+        else restore();
+    });
+
+    // 2. Keyboard & Screenshot Key Protections
+    document.onkeydown = function (e) {
+        // Block PrintScreen (PrtSc) and common capture shortcuts
+        if (e.key === "PrintScreen" || e.keyCode === 44 || (e.metaKey && e.shiftKey && e.keyCode === 83)) {
+            handleCaptureAttempt();
+            return false;
+        }
+
+        // Disable Developer Tools, View Source, Save-As, and Print
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) || 
+            (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 80))) {
             return false;
         }
     };
 
-    // 3. Disable Text Selection/Copying via JS (Backup to CSS)
-    document.onselectstart = function() { return false; };
-    document.oncopy = function() { return false; };
-
-    /**
-     * Global PDF Download Protection Function
-     */
-    window.downloadProtectedFile = function(fileUrl, fileName) {
-        var password = prompt("Please enter the password to download this document:");
+    function handleCaptureAttempt() {
+        // Clear Clipboard immediately
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText("SECURITY ALERT: This content is protected. Captured images are unusable.");
+        }
         
+        blackout();
+        alert("SECURITY ALERT: Screen capture detected. This content is protected property of Sneha Complex.");
+        setTimeout(restore, 2000);
+    }
+
+    // 3. Disable Right-Click & Mobile Context Menus
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onselectstart = function () { return false; };
+    document.oncopy = function () { return false; };
+
+    // 4. PDF Download Protection with Password
+    window.downloadProtectedFile = function (fileUrl, fileName) {
+        var password = prompt("Please enter the password to download this document:");
         if (password === "sneha@123") {
             var link = document.createElement('a');
             link.href = fileUrl;
