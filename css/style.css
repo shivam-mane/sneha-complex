@@ -777,19 +777,3 @@
     }
 }
 /* CSS Watermark Overlay */
-.tab-content, .about-img {
-    position: relative;
-}
-
-.tab-content::after {
-    content: "SNEHA COMPLEX - PROTECTED PROPERTY";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    font-size: 40px;
-    color: rgba(0, 0, 0, 0.05); /* Very light grey */
-    white-space: nowrap;
-    pointer-events: none; /* Allows clicking through the text */
-    z-index: 1000;
-}
