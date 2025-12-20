@@ -16,14 +16,12 @@
 
     // 3. Sticky Navbar & Back to Top Logic
     $(window).scroll(function () {
-        // Sticky Navbar
         if ($(this).scrollTop() > 45) {
             $('.nav-bar').addClass('sticky-top');
         } else {
             $('.nav-bar').removeClass('sticky-top');
         }
 
-        // Back to top button visibility
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
         } else {
@@ -79,12 +77,7 @@
         function showGalleryModal(src) {
             $('#modalImage').attr('src', src);
             $('#imageModal').modal('show');
-
-            if (images.length <= 1) {
-                $('#prevBtn, #nextBtn').hide();
-            } else {
-                $('#prevBtn, #nextBtn').show();
-            }
+            images.length <= 1 ? $('#prevBtn, #nextBtn').hide() : $('#prevBtn, #nextBtn').show();
         }
 
         $('#nextBtn').click(function (e) {
@@ -121,22 +114,17 @@
         });
     };
 
-    // Detect Focus Loss & Tab Switching
     window.addEventListener('blur', blackout);
     window.addEventListener('focus', restore);
     document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') blackout();
-        else restore();
+        document.visibilityState === 'hidden' ? blackout() : restore();
     });
 
-    // Keyboard & Screenshot Key Protections
     document.onkeydown = function (e) {
         if (e.key === "PrintScreen" || e.keyCode === 44 || (e.metaKey && e.shiftKey && e.keyCode === 83)) {
             handleCaptureAttempt();
             return false;
         }
-
-        // Disable F12, Ctrl+Shift+I, Ctrl+U (View Source), Ctrl+S (Save), Ctrl+P (Print)
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) || 
             (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 80))) {
@@ -149,17 +137,16 @@
             navigator.clipboard.writeText("SECURITY ALERT: Content Protected.");
         }
         blackout();
-        alert("SECURITY ALERT: Screen capture detected. Content is protected.");
+        alert("SECURITY ALERT: Screen capture attempt detected. Content protected.");
         setTimeout(restore, 2000);
     }
 
-    // Disable Right-Click and Copying
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.onselectstart = function () { return false; };
     document.oncopy = function () { return false; };
 
     // ============================================================
-    // PDF PROTECTION: Viewing & Downloading
+    // PDF PROTECTION: Viewing (Canvas) & Downloading
     // ============================================================
 
     // 1. Password Protected Download
@@ -177,36 +164,72 @@
         }
     };
 
-    // 2. Secure Mobile-Friendly PDF Viewer (Prevents "Open in New Tab")
+    // 2. Secure PDF Viewer (Uses Canvas to hide "Open in New Tab" on Mobile)
     window.viewSecurePDF = function (fileUrl) {
         var password = prompt("Enter password to view this document:");
-
-        if (password === "sneha@123") {
-            // Create a fullscreen overlay
-            var viewerHtml = `
-            <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; display:flex; flex-direction:column;">
-                <div style="padding:15px; background:#222; display:flex; justify-content:space-between; align-items:center;">
-                    <span style="color:white; font-family:sans-serif; font-weight:bold;">Protected Document</span>
-                    <button onclick="$('#pdfOverlay').remove()" style="background:#ff4d4d; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">CLOSE</button>
-                </div>
-                <div style="flex-grow:1; overflow:hidden; -webkit-overflow-scrolling:touch;">
-                    <iframe src="${fileUrl}#toolbar=0&navpanes=0&scrollbar=0" 
-                            style="width:100%; height:100%; border:none;" 
-                            oncontextmenu="return false;">
-                    </iframe>
-                </div>
-            </div>`;
-            $('body').append(viewerHtml);
-            
-            // Push a state to browser history so 'Back' button closes the PDF instead of leaving the page
-            window.history.pushState({viewingPdf: true}, "");
-            $(window).on('popstate', function() {
-                $('#pdfOverlay').remove();
-            });
-
-        } else if (password !== null) {
-            alert("Incorrect Password!");
+        if (password !== "sneha@123") {
+            if (password !== null) alert("Incorrect Password!");
+            return;
         }
+
+        // Setup Fullscreen Overlay with scrollable area
+        var viewerHtml = `
+        <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+            <div style="position:sticky; top:0; padding:15px; background:#222; display:flex; justify-content:space-between; align-items:center; z-index:10001; border-bottom: 1px solid #444;">
+                <span style="color:white; font-family:sans-serif; font-weight:bold;">Protected Preview</span>
+                <button onclick="$('#pdfOverlay').remove()" style="background:#ff4d4d; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">CLOSE</button>
+            </div>
+            <div id="pdfCanvasContainer" style="display:flex; flex-direction:column; align-items:center; padding:20px 10px;">
+                <p id="pdfLoading" style="color:white; font-family:sans-serif;">Decrypting and Loading Secure Preview...</p>
+            </div>
+        </div>`;
+        $('body').append(viewerHtml);
+
+        // PDF.js Initialization
+        var pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        var loadingTask = pdfjsLib.getDocument(fileUrl);
+        loadingTask.promise.then(function(pdf) {
+            $('#pdfLoading').remove();
+            
+            // Loop through pages and render to Canvas
+            for (var pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                renderPage(pdf, pageNum);
+            }
+        }, function (reason) {
+            alert("Security Error: Unable to render document. " + reason);
+            $('#pdfOverlay').remove();
+        });
+
+        function renderPage(pdf, num) {
+            var canvas = document.createElement('canvas');
+            canvas.style.marginBottom = "25px";
+            canvas.style.width = "95%"; 
+            canvas.style.maxWidth = "900px";
+            canvas.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
+            document.getElementById('pdfCanvasContainer').appendChild(canvas);
+
+            pdf.getPage(num).then(function(page) {
+                var viewport = page.getViewport({scale: 2.0}); // High quality scale
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        }
+
+        // Prevent Back button from closing page (closes PDF overlay instead)
+        window.history.pushState({viewingPdf: true}, "");
+        $(window).on('popstate.pdfClose', function() {
+            $('#pdfOverlay').remove();
+            $(window).off('popstate.pdfClose');
+        });
     };
 
 })(jQuery);
