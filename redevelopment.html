@@ -90,36 +90,51 @@
             </div>
         </div>
         <!-- Search End -->
+
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-4">
-                        <div class="doc-nav-container shadow-sm border rounded p-3">
+                        <div class="doc-nav-container shadow-sm border rounded p-3 bg-white">
                             <div class="sidebar-header fw-bold mb-3 pb-2 border-bottom">Redevelopment Documents</div>
-                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab-redev" role="tablist">
-                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-redev-1"
-                                    type="button" role="tab">Association of persons Deed</button>
-                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-redev-2" type="button"
-                                    role="tab">संस्थेच्या नवे खरेदी खत</button>
+                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab-redev" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active text-start" id="tab-redev-1" data-bs-toggle="pill"
+                                    data-bs-target="#v-redev-1" type="button" role="tab" aria-controls="v-redev-1"
+                                    aria-selected="true">Association of <br> Persons Deed</button>
+                                <button class="nav-link text-start" id="tab-redev-2" data-bs-toggle="pill"
+                                    data-bs-target="#v-redev-2" type="button" role="tab" aria-controls="v-redev-2"
+                                    aria-selected="false">संस्थेच्या नवे खरेदी खत</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-9 col-md-8">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="v-redev-1" role="tabpanel">
-                                <iframe class="pdf-frame w-100" style="height: 500px;"
+                        <div class="tab-content border rounded bg-light p-2" id="v-pills-tabContentRedev">
+
+                            <div class="tab-pane fade show active" id="v-redev-1" role="tabpanel"
+                                aria-labelledby="tab-redev-1">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
                                     src="pdf/Association of persons Deed (१९ जुलै २०२४).pdf#toolbar=0"></iframe>
-                                <div class="text-center mt-3"><button class="btn btn-primary"
-                                        onclick="downloadProtectedFile('pdf/Association of persons Deed (१९ जुलै २०२४).pdf', 'Association_Deed.pdf')"><i
-                                            class="fa fa-lock me-2"></i> Download PDF</button></div>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/Association of persons Deed (१९ जुलै २०२४).pdf', 'Association_of_Persons_Deed_July_2024.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="v-redev-2" role="tabpanel">
-                                <iframe class="pdf-frame w-100" style="height: 500px;"
+
+                            <div class="tab-pane fade" id="v-redev-2" role="tabpanel" aria-labelledby="tab-redev-2">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
                                     src="pdf/संस्थेच्या नवे खरेदी खत ( २ मार्च २०२५ ).pdf#toolbar=0"></iframe>
-                                <div class="text-center mt-3"><button class="btn btn-primary"
-                                        onclick="downloadProtectedFile('pdf/संस्थेच्या नवे खरेदी खत ( २ मार्च २०२५ ).pdf', 'Kharedi_Khat.pdf')"><i
-                                            class="fa fa-lock me-2"></i> Download PDF</button></div>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/संस्थेच्या नवे खरेदी खत ( २ मार्च २०२५ ).pdf', 'Sanstha_Kharedi_Khat_March_2025.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -388,64 +403,82 @@
         </div>
 
         <div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-4">
-                <div class="doc-nav-container shadow-sm border rounded p-3">
-                    <div class="sidebar-header fw-bold mb-3 pb-2 border-bottom">Federation Documents</div>
-                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab-fed" role="tablist" aria-orientation="vertical">
-                        <button class="nav-link active text-start" id="tab-fed-1" data-bs-toggle="pill" data-bs-target="#v-fed-1" type="button" role="tab" aria-controls="v-fed-1" aria-selected="true">नोंदणीचे प्रमाणपत्र</button>
-                        <button class="nav-link text-start" id="tab-fed-2" data-bs-toggle="pill" data-bs-target="#v-fed-2" type="button" role="tab" aria-controls="v-fed-2" aria-selected="false">प्रोसिडिंग बुक</button>
-                        <button class="nav-link text-start" id="tab-fed-3" data-bs-toggle="pill" data-bs-target="#v-fed-3" type="button" role="tab" aria-controls="v-fed-3" aria-selected="false">फेडरेशन BYE LAWS</button>
-                        <button class="nav-link text-start" id="tab-fed-4" data-bs-toggle="pill" data-bs-target="#v-fed-4" type="button" role="tab" aria-controls="v-fed-4" aria-selected="false">फेडरेशन नोंद (२०१५)</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-md-8">
-                <div class="tab-content border rounded bg-light p-2" id="v-pills-tabContentFed">
-                    
-                    <div class="tab-pane fade show active" id="v-fed-1" role="tabpanel" aria-labelledby="tab-fed-1">
-                        <iframe class="pdf-frame w-100" style="height: 600px; border: none;" src="pdf/Federation Documents/नोंदणीचे प्रमाणपत्र ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
-                        <div class="text-center mt-3">
-                            <button class="btn btn-primary" onclick="downloadProtectedFile('pdf/Federation Documents/नोंदणीचे प्रमाणपत्र ( ५ फेब्रुवारी २०१५ ).pdf', 'Registration_Certificate_2015.pdf')">
-                                <i class="fa fa-lock me-2"></i> Download PDF
-                            </button>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="doc-nav-container shadow-sm border rounded p-3">
+                            <div class="sidebar-header fw-bold mb-3 pb-2 border-bottom">Federation Documents</div>
+                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab-fed" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active text-start" id="tab-fed-1" data-bs-toggle="pill"
+                                    data-bs-target="#v-fed-1" type="button" role="tab" aria-controls="v-fed-1"
+                                    aria-selected="true">नोंदणीचे प्रमाणपत्र</button>
+                                <button class="nav-link text-start" id="tab-fed-2" data-bs-toggle="pill"
+                                    data-bs-target="#v-fed-2" type="button" role="tab" aria-controls="v-fed-2"
+                                    aria-selected="false">प्रोसिडिंग बुक</button>
+                                <button class="nav-link text-start" id="tab-fed-3" data-bs-toggle="pill"
+                                    data-bs-target="#v-fed-3" type="button" role="tab" aria-controls="v-fed-3"
+                                    aria-selected="false">फेडरेशन BYE LAWS</button>
+                                <button class="nav-link text-start" id="tab-fed-4" data-bs-toggle="pill"
+                                    data-bs-target="#v-fed-4" type="button" role="tab" aria-controls="v-fed-4"
+                                    aria-selected="false">फेडरेशन नोंद (२०१५)</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="v-fed-2" role="tabpanel" aria-labelledby="tab-fed-2">
-                        <iframe class="pdf-frame w-100" style="height: 600px; border: none;" src="pdf/Federation Documents/प्रोसिडिंग बुक.pdf#toolbar=0"></iframe>
-                        <div class="text-center mt-3">
-                            <button class="btn btn-primary" onclick="downloadProtectedFile('pdf/Federation Documents/प्रोसिडिंग बुक.pdf', 'Proceeding_Book.pdf')">
-                                <i class="fa fa-lock me-2"></i> Download PDF
-                            </button>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="tab-content border rounded bg-light p-2" id="v-pills-tabContentFed">
+
+                            <div class="tab-pane fade show active" id="v-fed-1" role="tabpanel"
+                                aria-labelledby="tab-fed-1">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
+                                    src="pdf/Federation Documents/नोंदणीचे प्रमाणपत्र ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/Federation Documents/नोंदणीचे प्रमाणपत्र ( ५ फेब्रुवारी २०१५ ).pdf', 'Registration_Certificate_2015.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-fed-2" role="tabpanel" aria-labelledby="tab-fed-2">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
+                                    src="pdf/Federation Documents/प्रोसिडिंग बुक.pdf#toolbar=0"></iframe>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/Federation Documents/प्रोसिडिंग बुक.pdf', 'Proceeding_Book.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-fed-3" role="tabpanel" aria-labelledby="tab-fed-3">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
+                                    src="pdf/Federation Documents/फेडरेशन BYE LAWS ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/Federation Documents/फेडरेशन BYE LAWS ( ५ फेब्रुवारी २०१५ ).pdf', 'Federation_Bye_Laws.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="v-fed-4" role="tabpanel" aria-labelledby="tab-fed-4">
+                                <iframe class="pdf-frame w-100" style="height: 600px; border: none;"
+                                    src="pdf/Federation Documents/फेडरेशन नोंद ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary"
+                                        onclick="downloadProtectedFile('pdf/Federation Documents/फेडरेशन नोंद ( ५ फेब्रुवारी २०१५ ).pdf', 'Federation_Registration_2015.pdf')">
+                                        <i class="fa fa-lock me-2"></i> Download PDF
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
-                    <div class="tab-pane fade" id="v-fed-3" role="tabpanel" aria-labelledby="tab-fed-3">
-                        <iframe class="pdf-frame w-100" style="height: 600px; border: none;" src="pdf/Federation Documents/फेडरेशन BYE LAWS ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
-                        <div class="text-center mt-3">
-                            <button class="btn btn-primary" onclick="downloadProtectedFile('pdf/Federation Documents/फेडरेशन BYE LAWS ( ५ फेब्रुवारी २०१५ ).pdf', 'Federation_Bye_Laws.pdf')">
-                                <i class="fa fa-lock me-2"></i> Download PDF
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="v-fed-4" role="tabpanel" aria-labelledby="tab-fed-4">
-                        <iframe class="pdf-frame w-100" style="height: 600px; border: none;" src="pdf/Federation Documents/फेडरेशन नोंद ( ५ फेब्रुवारी २०१५ ).pdf#toolbar=0"></iframe>
-                        <div class="text-center mt-3">
-                            <button class="btn btn-primary" onclick="downloadProtectedFile('pdf/Federation Documents/फेडरेशन नोंद ( ५ फेब्रुवारी २०१५ ).pdf', 'Federation_Registration_2015.pdf')">
-                                <i class="fa fa-lock me-2"></i> Download PDF
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
-</div>
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
