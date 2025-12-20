@@ -2,15 +2,19 @@
 /* Security: Prevent text selection across the site */
 /* Disable long-press and tap-highlight on Mobile */
 * {
-    -webkit-touch-callout: none !important; /* Disables Mobile context menu */
-    -webkit-user-select: none !important;   /* Disables all text/image selection */
+    -webkit-touch-callout: none !important;
+    /* Disables Mobile context menu */
+    -webkit-user-select: none !important;
+    /* Disables all text/image selection */
     user-select: none !important;
     -webkit-tap-highlight-color: transparent;
 }
 
 /* Prevent content from being visible when user tries to "Print to PDF" */
 @media print {
-    body { display: none !important; }
+    body {
+        display: none !important;
+    }
 }
 
 /* For browsers that support it, this prevents content from appearing in screen shares */
@@ -781,6 +785,8 @@
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    pointer-events: none; /* Crucial: stops mobile browsers from interacting with the canvas */
+    pointer-events: none;
+    /* Crucial: stops mobile browsers from interacting with the canvas */
 }
+
 /* CSS Watermark Overlay */

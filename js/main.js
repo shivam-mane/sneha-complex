@@ -164,7 +164,7 @@
         }
     };
 
-    // 2. Secure PDF Viewer (Canvas Rendering to block "Open in New Tab")
+    // 2. Secure PDF Viewer (Canvas Rendering to block "Open in New Tab" / Desktop Site bypass)
     window.viewSecurePDF = function (fileUrl) {
         var password = prompt("Enter password to view this document:");
         if (password !== "sneha@123") {
@@ -172,7 +172,7 @@
             return;
         }
 
-        // Overlay Construction
+        // Overlay Construction - Use high Z-index to cover everything
         var viewerHtml = `
         <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:10000; overflow-y:auto; -webkit-overflow-scrolling:touch;">
             <div style="position:sticky; top:0; padding:15px; background:#111; display:flex; justify-content:space-between; align-items:center; z-index:10001; border-bottom: 2px solid #333;">
@@ -207,12 +207,15 @@
             canvas.style.width = "95%"; 
             canvas.style.maxWidth = "850px";
             canvas.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
-            // Prevent interaction with the canvas
+            
+            // CRITICAL: Disable all interaction on the canvas to prevent right-click/long-press
             canvas.style.pointerEvents = "none";
+            canvas.oncontextmenu = function() { return false; };
+            
             document.getElementById('pdfCanvasContainer').appendChild(canvas);
 
             pdf.getPage(num).then(function(page) {
-                var viewport = page.getViewport({scale: 2.0}); 
+                var viewport = page.getViewport({scale: 2.0}); // High resolution
                 var context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
@@ -225,11 +228,13 @@
             });
         }
 
-        // Mobile "Back" button management
+        // Mobile "Back" button management to close overlay instead of leaving site
         window.history.pushState({viewingPdf: true}, "");
         $(window).on('popstate.pdfClose', function() {
-            $('#pdfOverlay').remove();
-            $(window).off('popstate.pdfClose');
+            if($('#pdfOverlay').length > 0) {
+                $('#pdfOverlay').remove();
+                $(window).off('popstate.pdfClose');
+            }
         });
     };
 
