@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    // Spinner: Handles the loading screen on page load
+    // 1. Spinner: Handles the loading screen on page load
     var spinner = function () {
         setTimeout(function () {
             if ($('#spinner').length > 0) {
@@ -11,32 +11,32 @@
     };
     spinner();
 
-    // Initiate the wowjs animations
+    // 2. Initiate the wowjs animations
     new WOW().init();
 
-    // Sticky Navbar: Adds background on scroll
+    // 3. Sticky Navbar & Back to Top Logic
     $(window).scroll(function () {
+        // Sticky Navbar
         if ($(this).scrollTop() > 45) {
             $('.nav-bar').addClass('sticky-top');
         } else {
             $('.nav-bar').removeClass('sticky-top');
         }
-    });
 
-    // Back to top button visibility and logic
-    $(window).scroll(function () {
+        // Back to top button visibility
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut('slow');
         }
     });
+
     $('.back-to-top').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
-    // Header carousel initialization
+    // 4. Header carousel initialization
     $(".header-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
@@ -50,7 +50,7 @@
         ]
     });
 
-    // Photo Enlarger & Gallery Logic
+    // 5. Photo Enlarger & Gallery Logic
     $(document).ready(function () {
         let images = [];
         let currentIdx = 0;
@@ -104,7 +104,6 @@
     // CRITICAL SECURITY: Anti-Capture & Blackout Provision
     // ============================================================
 
-    // 1. Blackout Logic: Detects focus loss
     const blackout = () => {
         $('body').css({
             'opacity': '0',
@@ -122,25 +121,22 @@
         });
     };
 
-    // Detect Focus Loss (Triggers when Snipping Tool or OS Capture tool appears)
+    // Detect Focus Loss & Tab Switching
     window.addEventListener('blur', blackout);
     window.addEventListener('focus', restore);
-    
-    // Detect Tab/Window switching or browser minimization
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'hidden') blackout();
         else restore();
     });
 
-    // 2. Keyboard & Screenshot Key Protections
+    // Keyboard & Screenshot Key Protections
     document.onkeydown = function (e) {
-        // Block PrintScreen (PrtSc) and common capture shortcuts
         if (e.key === "PrintScreen" || e.keyCode === 44 || (e.metaKey && e.shiftKey && e.keyCode === 83)) {
             handleCaptureAttempt();
             return false;
         }
 
-        // Disable Developer Tools, View Source, Save-As, and Print
+        // Disable F12, Ctrl+Shift+I, Ctrl+U (View Source), Ctrl+S (Save), Ctrl+P (Print)
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) || 
             (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 80))) {
@@ -149,22 +145,24 @@
     };
 
     function handleCaptureAttempt() {
-        // Clear Clipboard immediately
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText("SECURITY ALERT: This content is protected. Captured images are unusable.");
+            navigator.clipboard.writeText("SECURITY ALERT: Content Protected.");
         }
-        
         blackout();
-        alert("SECURITY ALERT: Screen capture detected. This content is protected property of Sneha Complex.");
+        alert("SECURITY ALERT: Screen capture detected. Content is protected.");
         setTimeout(restore, 2000);
     }
 
-    // 3. Disable Right-Click & Mobile Context Menus
+    // Disable Right-Click and Copying
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.onselectstart = function () { return false; };
     document.oncopy = function () { return false; };
 
-    // 4. PDF Download Protection with Password
+    // ============================================================
+    // PDF PROTECTION: Viewing & Downloading
+    // ============================================================
+
+    // 1. Password Protected Download
     window.downloadProtectedFile = function (fileUrl, fileName) {
         var password = prompt("Please enter the password to download this document:");
         if (password === "sneha@123") {
@@ -174,6 +172,38 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        } else if (password !== null) {
+            alert("Incorrect Password!");
+        }
+    };
+
+    // 2. Secure Mobile-Friendly PDF Viewer (Prevents "Open in New Tab")
+    window.viewSecurePDF = function (fileUrl) {
+        var password = prompt("Enter password to view this document:");
+
+        if (password === "sneha@123") {
+            // Create a fullscreen overlay
+            var viewerHtml = `
+            <div id="pdfOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; display:flex; flex-direction:column;">
+                <div style="padding:15px; background:#222; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:white; font-family:sans-serif; font-weight:bold;">Protected Document</span>
+                    <button onclick="$('#pdfOverlay').remove()" style="background:#ff4d4d; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">CLOSE</button>
+                </div>
+                <div style="flex-grow:1; overflow:hidden; -webkit-overflow-scrolling:touch;">
+                    <iframe src="${fileUrl}#toolbar=0&navpanes=0&scrollbar=0" 
+                            style="width:100%; height:100%; border:none;" 
+                            oncontextmenu="return false;">
+                    </iframe>
+                </div>
+            </div>`;
+            $('body').append(viewerHtml);
+            
+            // Push a state to browser history so 'Back' button closes the PDF instead of leaving the page
+            window.history.pushState({viewingPdf: true}, "");
+            $(window).on('popstate', function() {
+                $('#pdfOverlay').remove();
+            });
+
         } else if (password !== null) {
             alert("Incorrect Password!");
         }
